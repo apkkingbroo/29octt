@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Game Predictor</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+<style id="themeStyle">
+body{background:#ffffff;color:#000;min-height:100vh;padding:18px;display:flex;flex-direction:column;align-items:center;font-family:'Poppins',sans-serif;}
+.header{text-align:center;font-size:22px;font-weight:700;color:#0066ff;margin-bottom:20px;border-bottom:2px solid #0066ff;padding-bottom:8px;width:100%;max-width:420px;}
+.theme-btns{display:flex;gap:10px;margin-bottom:15px;}
+.theme-btn{padding:6px 12px;border-radius:18px;font-size:12px;font-weight:700;border:none;cursor:pointer;}
+.light-btn{background:#ddd;color:#000;}
+.dark-btn{background:#000;color:#fff;}
+.app-list{width:100%;max-width:420px;display:flex;flex-direction:column;gap:15px;}
+.app-card{background:#f5f8ff;border-radius:14px;padding:12px;display:flex;justify-content:space-between;align-items:center;border:2px solid #dce7ff;}
+.app-left{display:flex;align-items:center;gap:12px;}
+.app-left img{width:50px;height:50px;border-radius:10px;}
+.app-info h3{font-size:14px;font-weight:700;}
+.app-info a{font-size:11px;color:#ff0077;text-decoration:none;font-weight:700;}
+.start-btn{background:#0066ff;color:#fff;border:none;padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;}
+#dialogBox{position:fixed;inset:0;background:rgba(0,0,0,.3);display:flex;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:.25s;z-index:100;}
+#dialogBox.show{opacity:1;pointer-events:auto;}
+.dialog-content{background:#ffffff;border-radius:18px;width:80%;max-width:300px;padding:20px;text-align:center;border:2px solid #0066ff;transform:scale(.7);opacity:0;transition:.3s;}
+#dialogBox.show .dialog-content{transform:scale(1);opacity:1;}
+#closeBtn{position:absolute;right:10px;top:10px;background:none;border:none;font-size:24px;font-weight:700;color:#ff0059;cursor:pointer;}
+.topBox{display:flex;justify-content:center;align-items:center;gap:8px;margin-bottom:14px;}
+#periodNumber{font-size:12px;font-weight:700;color:#0066ff;padding:5px 10px;border-radius:8px;border:1px solid #0066ff;}
+#buyPaid{background:#ff0059;color:#fff;padding:5px 12px;border-radius:25px;font-size:11px;font-weight:700;text-decoration:none;}
+#resultText{font-size:28px;font-weight:700;margin:10px 0;}
+.big{color:#00aa2e;}
+.small{color:#ff0033;}
+#timerText{font-size:15px;font-weight:700;margin-top:6px;}
+.telegram-btn{margin-top:25px;background:#fff;color:#0066ff;border:2px solid #0066ff;border-radius:20px;padding:8px 20px;font-size:13px;font-weight:700;text-decoration:none;}
+</style>
+</head>
+
+<body>
+
+<div class="header">Game Predictor</div>
+
+<div class="theme-btns">
+<button class="theme-btn light-btn" onclick="setLight()">Light</button>
+<button class="theme-btn dark-btn" onclick="setDark()">Dark</button>
+</div>
+
+<div class="app-list">
+<div class="app-card"><div class="app-left"><img src="https://i.ibb.co/pvXx2ZBR/x.jpg"><div class="app-info"><h3>55 Club</h3><a href="https://www.in979.in/#/register?invitationCode=83221522037">Create Account</a></div></div><button class="start-btn" onclick="showBox()">Start</button></div>
+<div class="app-card"><div class="app-left"><img src="https://i.ibb.co/RpW3GYRk/x.jpg"><div class="app-info"><h3>82 Lottery</h3><a href="https://82lottery9.com/#/register?invitationCode=14244992621">Create Account</a></div></div><button class="start-btn" onclick="showBox()">Start</button></div>
+<div class="app-card"><div class="app-left"><img src="https://i.ibb.co/Gv4cCLRd/x.jpg"><div class="app-info"><h3>Bdgwin</h3><a href="https://bdgwin.cc/#/register?invitationCode=372171400520">Create Account</a></div></div><button class="start-btn" onclick="showBox()">Start</button></div>
+<div class="app-card"><div class="app-left"><img src="https://i.ibb.co/VWKvPtmT/x.jpg"><div class="app-info"><h3>Big Daddy</h3><a href="https://bdg-4.com/#/register?invitationCode=b7yIo501953">Create Account</a></div></div><button class="start-btn" onclick="showBox()">Start</button></div>
+<div class="app-card"><div class="app-left"><img src="https://i.ibb.co/LDLB7gCD/x.jpg"><div class="app-info"><h3>91 Club</h3><a href="https://91777.in/#/register?invitationCode=111355811375">Create Account</a></div></div><button class="start-btn" onclick="showBox()">Start</button></div>
+<div class="app-card"><div class="app-left"><img src="https://i.ibb.co/LzrzcJG2/x.jpg"><div class="app-info"><h3>Tiranga</h3><a href="https://www.tirangaclub.org/#/register?invitationCode=357811313367">Create Account</a></div></div><button class="start-btn" onclick="showBox()">Start</button></div>
+<div class="app-card"><div class="app-left"><img src="https://i.ibb.co/Zp5GT8G9/x.jpg"><div class="app-info"><h3>Bharat Club</h3><a href="https://bhtclub0.com/#/register?invitationCode=884382272723">Create Account</a></div></div><button class="start-btn" onclick="showBox()">Start</button></div>
+<div class="app-card"><div class="app-left"><img src="https://i.ibb.co/7Jf11hj1/x.jpg"><div class="app-info"><h3>Big Mumbai</h3><a href="https://www.gurlamandhata.com/#/register?invitationCode=231142312313">Create Account</a></div></div><button class="start-btn" onclick="showBox()">Start</button></div>
+</div>
+
+<a href="https://t.me/apkmodderkings" target="_blank" class="telegram-btn">Join Telegram</a>
+
+<div id="dialogBox">
+<div class="dialog-content">
+<button id="closeBtn">×</button>
+<div class="topBox">
+<p id="periodNumber"></p>
+<a id="buyPaid" href="https://telegram.me/absentexe" target="_blank">Paid</a>
+</div>
+<p id="resultText">?</p>
+<p id="timerText"></p>
+</div>
+</div>
+
+<script>
+let dialogBox=document.getElementById("dialogBox");
+let timerText=document.getElementById("timerText");
+let resultText=document.getElementById("resultText");
+let periodNumber=document.getElementById("periodNumber");
+let closeBtn=document.getElementById("closeBtn");
+let themeStyle=document.getElementById("themeStyle");
+
+function showBox(){dialogBox.classList.add("show");}
+closeBtn.onclick=()=>{dialogBox.classList.remove("show");};
+
+function updatePeriodAndTimer(){
+let now=new Date();
+let year=now.getUTCFullYear();
+let month=String(now.getUTCMonth()+1).padStart(2,'0');
+let day=String(now.getUTCDate()).padStart(2,'0');
+let hours=now.getUTCHours();
+let minutes=now.getUTCMinutes();
+let totalMinutes=hours*60+minutes;
+let periodNum=`${year}${month}${day}1000${10001+totalMinutes}`;
+periodNumber.innerText=periodNum;
+let lastTwoDigits=periodNum.slice(-2);
+let sum=[...lastTwoDigits].reduce((a,b)=>a+parseInt(b),0);
+if(sum>9)sum=[...String(sum)].reduce((a,b)=>a+parseInt(b),0);
+let result=sum>=5?"BIG":"SMALL";
+resultText.innerHTML=`<span class="${sum>=5?'big':'small'}">${result}</span>`;
+let seconds=now.getUTCSeconds();
+let remainingSeconds=60-seconds;
+timerText.innerText=`Next: 00:${String(remainingSeconds).padStart(2,'0')}`;
+}
+setInterval(updatePeriodAndTimer,1000);
+updatePeriodAndTimer();
+
+function setDark(){
+themeStyle.innerHTML=document.getElementById("themeStyle").innerHTML
+.replaceAll("#ffffff","#0e0f1a")
+.replaceAll("#000","#fff")
+.replaceAll("#f5f8ff","#1a1d2b")
+.replaceAll("#dce7ff","#28304a");
+}
+
+function setLight(){
+location.reload();
+}
+</script>
+
+</body>
+</html>
